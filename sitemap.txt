@@ -1,6 +1,6 @@
+https://zaesky.github.io/about/index.html
 https://zaesky.github.io/links/index.html
 https://zaesky.github.io/tags/index.html
 https://zaesky.github.io/categories/index.html
-https://zaesky.github.io/about/index.html
 https://zaesky.github.io/2022/04/06/hello-world/
 https://zaesky.github.io/
