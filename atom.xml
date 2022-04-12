@@ -6,7 +6,7 @@
   <link href="https://zaesky.github.io/atom.xml" rel="self"/>
   
   <link href="https://zaesky.github.io/"/>
-  <updated>2022-04-09T08:10:26.688Z</updated>
+  <updated>2022-04-12T10:00:21.610Z</updated>
   <id>https://zaesky.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript--对象</title>
+    <link href="https://zaesky.github.io/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://zaesky.github.io/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1/</id>
+    <published>2022-04-12T09:39:58.000Z</published>
+    <updated>2022-04-12T10:00:21.610Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="JS中数据类型"><a href="#JS中数据类型" class="headerlink" title="JS中数据类型"></a>JS中数据类型</h3><p><strong>String 字符串</strong><br><strong>Number 数值</strong><br><strong>Boolean 布尔值</strong><br><strong>Null 空值</strong><br><strong>Undefined 未定义</strong><br>以上这五种类型属于基本数据类型，以后我们看到的值只要不是上边的5种，全都是对象</p><h4 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a><strong>Object 对象</strong></h4><p>基本数据类型都是单一的值”hello” 123 true<br>值和值之间没有任何的联系。</p><p>在JS中来表示一个人的信息（name gender age）</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> gender = <span class="string">&quot;男&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure><p>如果使用基本数据类型的数据，我们所创建的变量都是独立，不能成为一个整体。<br>对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性。</p><h3 id="对象的分类"><a href="#对象的分类" class="headerlink" title="对象的分类"></a>对象的分类</h3><h4 id="1-内建对象"><a href="#1-内建对象" class="headerlink" title="1.内建对象"></a><strong>1.内建对象</strong></h4><p>由ES标准中定义的对象，在任何的ES的实现中都可以使用</p><p>比如：Math String Number Boolean Function Object….</p><h4 id="2-宿主对象"><a href="#2-宿主对象" class="headerlink" title="2.宿主对象"></a>2.宿主对象</h4><p>由JS的运行环境提供的对象，目前来讲主要指由浏览器提供的对象</p><p>比如 BOM DOM</p><h4 id="3-自定义对象"><a href="#3-自定义对象" class="headerlink" title="3.自定义对象"></a>3.自定义对象</h4><p>由开发人员自己创建的对象</p><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>使用new关键字调用的函数，是构造函数constructor</p><p>构造函数是专门用来创建对象的函数</p><p>使用typeof检查一个对象时，会返回object</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br></pre></td></tr></table></figure><p>在对象中保存的值称为属性<br>向对象添加属性</p><blockquote><p>语法：对象.属性名 &#x3D; 属性值;</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向obj中添加一个name属性</span></span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line"><span class="comment">//向obj中添加一个gender属性</span></span><br><span class="line">obj.<span class="property">gender</span> = <span class="string">&quot;男&quot;</span>;</span><br><span class="line"><span class="comment">//向obj中添加一个age属性</span></span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span>;</span><br></pre></td></tr></table></figure><h4 id="读取对象中的属性"><a href="#读取对象中的属性" class="headerlink" title="读取对象中的属性"></a>读取对象中的属性</h4><p>语法：</p><blockquote><p>对象.属性名</p></blockquote><p><strong>如果读取对象中没有的属性，不会报错而是会返回undefined</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">gender</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">hello</span>);</span><br></pre></td></tr></table></figure><h4 id="修改对象的属性值"><a href="#修改对象的属性值" class="headerlink" title="修改对象的属性值"></a>修改对象的属性值</h4><p>语法：</p><blockquote><p>对象.属性名 &#x3D; 新值</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;tom&quot;</span>;</span><br></pre></td></tr></table></figure><h4 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h4><p>语法：</p><blockquote><p>delete 对象.属性名</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">name</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;JS中数据类型&quot;&gt;&lt;a href=&quot;#JS中数据类型&quot; class=&quot;headerlink&quot; title=&quot;JS中数据类型&quot;&gt;&lt;/a&gt;JS中数据类型&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;String 字符串&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Number 数值&lt;/</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+    <category term="js" scheme="https://zaesky.github.io/tags/js/"/>
+    
+    <category term="js基础" scheme="https://zaesky.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>算法设计与分析--最大字段和问题【动态规划法】</title>
