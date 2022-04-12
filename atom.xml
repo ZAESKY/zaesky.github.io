@@ -6,7 +6,7 @@
   <link href="https://zaesky.github.io/atom.xml" rel="self"/>
   
   <link href="https://zaesky.github.io/"/>
-  <updated>2022-04-12T11:19:56.833Z</updated>
+  <updated>2022-04-12T11:40:17.568Z</updated>
   <id>https://zaesky.github.io/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript--对象字面量</title>
+    <link href="https://zaesky.github.io/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F/"/>
+    <id>https://zaesky.github.io/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F/</id>
+    <published>2022-04-12T11:24:01.000Z</published>
+    <updated>2022-04-12T11:40:17.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>创建一个对象</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br></pre></td></tr></table></figure><p>使用对象字面量来创建一个对象</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> obj);</span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br></pre></td></tr></table></figure><p>使用对象字面量，可以在创建对象时，直接指定对象中的属性</p><p>语法：</p><blockquote><p>{属性名:属性值,属性名:属性值….}</p></blockquote><p>对象字面量的属性名可以加引号也可以不加，建议不加。</p><ul><li><p>如果要使用一些特殊的名字，则必须加引号</p></li><li><p>属性名和属性值是一组一组的名值对结构</p></li><li><p>名和值之间使用:连接，多个名值对之间使用<code>,</code>隔开</p></li><li><pre><code>如果一个属性之后没有其他的属性了，就不要写</code></pre> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line"><span class="attr">name</span>:<span class="string">&quot;猪八戒&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="number">13</span>,</span><br><span class="line">    <span class="attr">gender</span>:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    <span class="attr">test</span>:&#123;<span class="attr">name</span>:<span class="string">&quot;沙僧&quot;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">test</span>);</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;创建一个对象&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+    <category term="js" scheme="https://zaesky.github.io/tags/js/"/>
+    
+    <category term="js基础" scheme="https://zaesky.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript--基本数据类型和引用数据类型</title>
+    <link href="https://zaesky.github.io/2022/04/12/JavaScript-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://zaesky.github.io/2022/04/12/JavaScript-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <published>2022-04-12T11:23:06.000Z</published>
+    <updated>2022-04-12T11:33:00.273Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><ul><li>String</li><li>Number </li><li>Boolean </li><li>Null </li><li>Undefined</li></ul><h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><ul><li>Object</li></ul><p>JS中的变量都是保存到栈内存中的，基本数据类型的值直接在栈内存中存储，值与值之间是独立存在，修改一个变量不会影响其他的变量。</p><p>对象是保存到堆内存中的，每创建一个新的对象，就会在堆内存中开辟出一个新的空间，而变量保存的是对象的内存地址（对象的引用），如果两个变量保存的是同一个对象引用，当一个通过一个变量修改属性时，另一个也会受到影响。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">    a++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span>+a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span>+b);</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = obj;</span><br><span class="line"><span class="comment">//修改obj的name属性</span></span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;猪八戒&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">name</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置obj2为null</span></span><br><span class="line">obj2 = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c == d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">obj3.<span class="property">name</span> = <span class="string">&quot;沙和尚&quot;</span>;</span><br><span class="line">obj4.<span class="property">name</span> = <span class="string">&quot;沙和尚&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj4);</span><br></pre></td></tr></table></figure><p>当比较两个基本数据类型的值时，就是比较值。<br>而比较两个引用数据类型时，它是比较的对象的内存地址。<br>如果两个对象是一摸一样的，但是地址不同，它也会返回false。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3 == obj4);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;基本数据类型&quot;&gt;&lt;/a&gt;基本数据类型&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;String&lt;/li&gt;
+&lt;li&gt;Number &lt;/li&gt;
+&lt;li&gt;Boolean &lt;/li&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+    <category term="js" scheme="https://zaesky.github.io/tags/js/"/>
+    
+    <category term="js基础" scheme="https://zaesky.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript--属性名与属性值</title>
