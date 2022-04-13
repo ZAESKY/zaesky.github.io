@@ -19,7 +19,7 @@ var _hmt = _hmt || [];
     
     <title>
         
-            算法设计与分析--最大字段和问题【动态规划法】 |
+            javascript--函数 |
         
         ZAESKY&#39;s Blog
     </title>
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">算法设计与分析--最大字段和问题【动态规划法】</span>
+            <span class="title-hover-animation">javascript--函数</span>
         </div>
 
         
@@ -216,8 +216,8 @@ var _hmt = _hmt || [];
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-09 15:39:50</span>
-        <span class="mobile">2022-04-09 15:39</span>
+        <span class="pc">2022-04-13 20:00:58</span>
+        <span class="mobile">2022-04-13 20:00</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -225,7 +225,11 @@ var _hmt = _hmt || [];
             <ul>
                 
                     <li>
-                        <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>&nbsp;
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>&nbsp;
                     </li>
                 
             </ul>
@@ -237,11 +241,11 @@ var _hmt = _hmt || [];
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                        <a href="/tags/js/">js</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>&nbsp;
+                        | <a href="/tags/js%E5%9F%BA%E7%A1%80/">js基础</a>&nbsp;
                     </li>
                 
             </ul>
@@ -251,12 +255,12 @@ var _hmt = _hmt || [];
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>636 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>328 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -272,34 +276,39 @@ var _hmt = _hmt || [];
         
 
         <div class="article-content markdown-body">
-            <h5 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h5><blockquote>
-<p>什么是最大字段和问题？</p>
-</blockquote>
-<p><strong>给定由 n 个整数（可能为负整数）组成的序列a1，a2，a3…an，求该数列中连续子段和最大！</strong></p>
-<p>  例如：当（a1，a2，a3，a4，a5）&#x3D;（-2,11，-4,13，-5，-2）时，最大字段和为 20 （11 + (-4) + 13）;</p>
-<h5 id="条件递推"><a href="#条件递推" class="headerlink" title="条件递推"></a>条件递推</h5><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img-blog.csdnimg.cn/806c0446f60541c795e29db3d7b29e94.png"
-                      alt="img"
-                ></p>
-<blockquote>
-<p>D[i]表示从i开始的最大字段和。（但我们不是从前往后找字段结束位置）<br>根据递推公式，我们可知要想求得D[i],就必须知道D[i+1],所以我们从前往后计算。<br>如下图：以i&#x3D;12开始的子段和D[12]&#x3D;X[12]&#x3D;-1，该子段结束位置Rec[12]&#x3D;i&#x3D;12；<br>当i&#x3D;11时，D[11+1]&lt;0,所以D[11]&#x3D;X[11]&#x3D;7,Rec[i]&#x3D;i&#x3D;11;<br>当i&#x3D;10时，D[10+1]&gt;0,所以D[10]&#x3D;X[10]+D[11]&#x3D;3+7,Rec&#x3D;i+1&#x3D;11;<br>…</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img-blog.csdnimg.cn/99e6252580f94889a9b3148e2db41278.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5Z2X5rS76L-H5p2l,size_20,color_FFFFFF,t_70,g_se,x_16"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img-blog.csdnimg.cn/424a688ab7d04338a5ccb53fae23860f.png"
-                      alt="img"
-                ></p>
-<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//动态规划函数 接收数组和数组个数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">dynamicPlan</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="comment">//定义三个数组</span></span><br><span class="line">    <span class="comment">//sum数组用于记录累加结果</span></span><br><span class="line">    <span class="comment">//endRecord数组用于记录结束位置</span></span><br><span class="line">    <span class="type">int</span> sum[n],endRecord[n];</span><br><span class="line">    <span class="comment">//初始化sum数组最后一个值</span></span><br><span class="line">    sum[n] = a[n];</span><br><span class="line">    <span class="comment">//初始化记录结束位置的数组</span></span><br><span class="line">    endRecord[n] = n;</span><br><span class="line">    <span class="comment">//从右往左的计算值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="comment">//情况1：如果i + 1的数大于0 sum数组记录下i + （i+1）的数</span></span><br><span class="line">    <span class="comment">//endRecord记录下结束位置的值</span></span><br><span class="line">    <span class="keyword">if</span>(sum[i + <span class="number">1</span>] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        sum[i] = a[i] + sum[i + <span class="number">1</span>];</span><br><span class="line">        endRecord[i] = endRecord[i + <span class="number">1</span>];</span><br><span class="line">    <span class="comment">//情况2：当i + 1的数小于0时</span></span><br><span class="line">    <span class="comment">//值为a数组本身的值</span></span><br><span class="line">    <span class="comment">//结尾位置变为i</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        sum[i] = a[i];</span><br><span class="line">        endRecord[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;累加和数组为：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n ;i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,sum[i]);</span><br><span class="line">    <span class="comment">//查找结果函数</span></span><br><span class="line">    findResult(n,a,sum,endRecord);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">findResult</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> a[],<span class="type">int</span> sum[],<span class="type">int</span> endRecord[])</span>&#123;</span><br><span class="line">    <span class="type">int</span> max,l,r,i;</span><br><span class="line">    <span class="comment">//从左往右开始查找</span></span><br><span class="line">    <span class="comment">//max初始化为sum数组第一个值</span></span><br><span class="line">    max = sum[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//和sum数组第二个值开始比对</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(max &lt; sum[i])&#123;</span><br><span class="line">        max = sum[i];</span><br><span class="line">        l = i;</span><br><span class="line">        r = endRecord[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n原数组为：&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= n ; i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a[i]);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n最大字段和为：%d 开始位置的数组下标：%d 结束位置的数组下标：%d&quot;</span>,max,l,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//这里可以改为输入的方式</span></span><br><span class="line">    <span class="type">int</span> n=<span class="number">11</span>;</span><br><span class="line">	<span class="type">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">-2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">-2</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">-2</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">	dynamicPlan(a,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="函数-function"><a href="#函数-function" class="headerlink" title="函数 function"></a>函数 function</h3><ul>
+<li>函数也是一个对象</li>
+<li>函数中可以封装一些功能（代码），在需要时可以执行这些功能（代码）</li>
+<li>函数中可以保存一些代码在需要的时候调用</li>
+<li>使用typeof检查一个函数对象时，会返回function</li>
+</ul>
+<h4 id="创建一个函数对象"><a href="#创建一个函数对象" class="headerlink" title="创建一个函数对象"></a>创建一个函数对象</h4><p>可以将要封装的代码以字符串的形式传递给构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&quot;console.log(&#x27;Hello 这是我的第一个函数&#x27;);&quot;</span>);</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>我们在实际开发中很少使用构造函数来创建一个函数对象。</p>
+</blockquote>
+<p>封装到函数中的代码不会立即执行</p>
+<p>函数中的代码会在函数调用的时候执行</p>
+<p>调用函数 语法：</p>
+<blockquote>
+<p>函数对象()</p>
+</blockquote>
+<p>当调用函数时，函数中封装的代码会按照顺序执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fun</span>();</span><br></pre></td></tr></table></figure>
+
+<p>使用 <strong>函数声明</strong> 来创建一个函数</p>
+<p>语法：</p>
+<blockquote>
+<p>function 函数名([形参1,形参2…形参N]){<br>    语句…<br>}</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;这是我的第二个函数~&quot;</span>);</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;哈哈哈哈哈&quot;</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;(&gt;_&lt;)~~&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 使用 <strong>函数表达式</strong> 来创建一个函数</p>
+<blockquote>
+<p>var 函数名  &#x3D; function([形参1,形参2…形参N]){<br>            语句….<br>            }</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun3 = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是匿名函数中封装的代码&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="title function_">fun3</span>();</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -307,11 +316,11 @@ var _hmt = _hmt || [];
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：算法设计与分析--最大字段和问题【动态规划法】</li>
+        <li>本文标题：javascript--函数</li>
         <li>本文作者：ZAESKY</li>
-        <li>创建时间：2022-04-09 15:39:50</li>
+        <li>创建时间：2022-04-13 20:00:58</li>
         <li>
-            本文链接：https://zaesky.github.io/2022/04/09/算法设计与分析-最大字段和问题【动态规划法】/
+            本文链接：https://zaesky.github.io/2022/04/13/javascript-函数/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -326,11 +335,11 @@ var _hmt = _hmt || [];
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>&nbsp;
+                        <a href="/tags/js/">#js</a>&nbsp;
                     </li>
                 
                     <li class="tag-item">
-                        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>&nbsp;
+                        <a href="/tags/js%E5%9F%BA%E7%A1%80/">#js基础</a>&nbsp;
                     </li>
                 
             </ul>
@@ -342,13 +351,13 @@ var _hmt = _hmt || [];
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1/"
+                           href="/2022/04/13/javascript-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">JavaScript--对象</span>
+                                <span class="post-nav-title-item">javascript--函数的参数</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -358,10 +367,10 @@ var _hmt = _hmt || [];
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/06/hello-world/"
+                           href="/2022/04/12/JavaScript-%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">JavaScript--对象字面量</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -579,7 +588,7 @@ var _hmt = _hmt || [];
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">问题引入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E9%80%92%E6%8E%A8"><span class="nav-number">2.</span> <span class="nav-text">条件递推</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-function"><span class="nav-number">1.</span> <span class="nav-text">函数 function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个函数对象</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
