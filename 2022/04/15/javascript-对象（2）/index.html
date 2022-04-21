@@ -19,7 +19,7 @@ var _hmt = _hmt || [];
     
     <title>
         
-            javascript--立即执行函数 |
+            javascript--对象（2） |
         
         ZAESKY&#39;s Blog
     </title>
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">javascript--立即执行函数</span>
+            <span class="title-hover-animation">javascript--对象（2）</span>
         </div>
 
         
@@ -216,8 +216,8 @@ var _hmt = _hmt || [];
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-13 20:50:31</span>
-        <span class="mobile">2022-04-13 20:50</span>
+        <span class="pc">2022-04-15 21:28:05</span>
+        <span class="mobile">2022-04-15 21:28</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>76 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>183 字</span>
         </span>
     
     
@@ -276,17 +276,19 @@ var _hmt = _hmt || [];
         
 
         <div class="article-content markdown-body">
-            <p>函数对象()</p>
-<p>立即执行函数</p>
-<p>函数定义完，立即被调用，这种函数叫做立即执行函数</p>
-<p>立即执行函数往往只会执行一次</p>
-<blockquote>
-<p>(function(){</p>
-<p>​    alert(“我是一个匿名函数~~~”);</p>
-<p>​    })();</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span>+a);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span>+b);</span><br><span class="line">    &#125;)(<span class="number">123</span>,<span class="number">456</span>);</span><br></pre></td></tr></table></figure>
+            <p>创建一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br></pre></td></tr></table></figure>
 
+<p>向对象中添加属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>对象的属性值可以是任何的数据类型，也可以是个函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">sayName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log(obj.sayName);</span></span><br><span class="line"><span class="comment">//调方法</span></span><br><span class="line">obj.<span class="title function_">sayName</span>();</span><br><span class="line"><span class="comment">//调函数</span></span><br><span class="line"><span class="comment">//fun();</span></span><br></pre></td></tr></table></figure>
+
+<p>函数也可以称为对象的属性，如果一个函数作为一个对象的属性保存，那么我们称这个函数时这个对象的方法</p>
+<p>调用这个函数就说调用对象的<code>方法（method）</code>但是它只是名称上的区别没有其他的区别。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&quot;猪八戒&quot;</span>,</span><br><span class="line">	<span class="attr">age</span>:<span class="number">18</span>,</span><br><span class="line">	<span class="attr">sayName</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">name</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj2.<span class="title function_">sayName</span>();</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -294,11 +296,11 @@ var _hmt = _hmt || [];
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：javascript--立即执行函数</li>
+        <li>本文标题：javascript--对象（2）</li>
         <li>本文作者：ZAESKY</li>
-        <li>创建时间：2022-04-13 20:50:31</li>
+        <li>创建时间：2022-04-15 21:28:05</li>
         <li>
-            本文链接：https://zaesky.github.io/2022/04/13/javascript-立即执行函数/
+            本文链接：https://zaesky.github.io/2022/04/15/javascript-对象（2）/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -329,13 +331,13 @@ var _hmt = _hmt || [];
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/15/javascript-%E5%AF%B9%E8%B1%A1%EF%BC%882%EF%BC%89/"
+                           href="/2022/04/15/javascript-%E6%9E%9A%E4%B8%BE%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">javascript--对象（2）</span>
+                                <span class="post-nav-title-item">javascript--枚举对象中的属性</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -345,10 +347,10 @@ var _hmt = _hmt || [];
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/13/javascript-%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%88return%EF%BC%89%E3%80%90%E5%AE%9E%E4%BE%8B%E3%80%91/"
+                           href="/2022/04/13/javascript-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">javascript--返回值（return）【实例】</span>
+                                <span class="post-nav-title-item">javascript--立即执行函数</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

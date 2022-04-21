@@ -6,7 +6,7 @@
   <link href="https://zaesky.github.io/atom.xml" rel="self"/>
   
   <link href="https://zaesky.github.io/"/>
-  <updated>2022-04-13T12:53:11.743Z</updated>
+  <updated>2022-04-18T05:38:33.446Z</updated>
   <id>https://zaesky.github.io/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript作用域（scope）</title>
+    <link href="https://zaesky.github.io/2022/04/15/javascript-%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88scope%EF%BC%89/"/>
+    <id>https://zaesky.github.io/2022/04/15/javascript-%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88scope%EF%BC%89/</id>
+    <published>2022-04-15T13:42:14.418Z</published>
+    <updated>2022-04-18T05:38:33.446Z</updated>
+    
+    <content type="html"><![CDATA[<p>作用域<br>                   作用域指一个变量的作用的范围<br>                   在JS中一共有两种作用域：<br>                      1.全局作用域<br>                           直接编写在script标签中的JS代码，都在全局作用域<br>                           全局作用域在页面打开时创建，在页面关闭时销毁<br>                           在全局作用域中有一个全局对象window，<br>                              它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用<br>                           在全局作用域中：<br>                              创建的变量都会作为window对象的属性保存<br>                              创建的函数都会作为window对象的方法保存<br>                           全局作用域中的变量都是全局变量，<br>                              在页面的任意的部分都可以访问的到</p><pre><code>                  2.函数作用域         /</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;作用域&lt;br&gt;                   作用域指一个变量的作用的范围&lt;br&gt;                   在JS中一共有两种作用域：&lt;br&gt;                      1.全局作用域&lt;br&gt;                        </summary>
+      
+    
+    
+    
+    
+    <category term="js js基础" scheme="https://zaesky.github.io/tags/js-js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript--枚举对象中的属性</title>
+    <link href="https://zaesky.github.io/2022/04/15/javascript-%E6%9E%9A%E4%B8%BE%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7/"/>
+    <id>https://zaesky.github.io/2022/04/15/javascript-%E6%9E%9A%E4%B8%BE%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7/</id>
+    <published>2022-04-15T13:33:08.000Z</published>
+    <updated>2022-04-15T13:36:19.921Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;孙悟空&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="number">18</span>,</span><br><span class="line">    <span class="attr">gender</span>:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    <span class="attr">address</span>:<span class="string">&quot;花果山&quot;</span></span><br><span class="line">     &#125;;</span><br></pre></td></tr></table></figure><h4 id="枚举对象中的属性"><a href="#枚举对象中的属性" class="headerlink" title="枚举对象中的属性"></a>枚举对象中的属性</h4><p>使用for … in 语句</p><p>语法：</p><blockquote><p>for(var 变量 in 对象){</p><p> }</p></blockquote><p>for…in语句 对象中有几个属性，循环体就会执行几次</p><p>每次执行时，会将对象中的一个属性的名字赋值给变量</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> n <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;属性名:&quot;</span>+n);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;属性值:&quot;</span>+obj[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span </summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+    <category term="js" scheme="https://zaesky.github.io/tags/js/"/>
+    
+    <category term="js基础" scheme="https://zaesky.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript--对象（2）</title>
+    <link href="https://zaesky.github.io/2022/04/15/javascript-%E5%AF%B9%E8%B1%A1%EF%BC%882%EF%BC%89/"/>
+    <id>https://zaesky.github.io/2022/04/15/javascript-%E5%AF%B9%E8%B1%A1%EF%BC%882%EF%BC%89/</id>
+    <published>2022-04-15T13:28:05.000Z</published>
+    <updated>2022-04-15T13:31:51.995Z</updated>
+    
+    <content type="html"><![CDATA[<p>创建一个对象</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br></pre></td></tr></table></figure><p>向对象中添加属性</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span>;</span><br></pre></td></tr></table></figure><p>对象的属性值可以是任何的数据类型，也可以是个函数</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">sayName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log(obj.sayName);</span></span><br><span class="line"><span class="comment">//调方法</span></span><br><span class="line">obj.<span class="title function_">sayName</span>();</span><br><span class="line"><span class="comment">//调函数</span></span><br><span class="line"><span class="comment">//fun();</span></span><br></pre></td></tr></table></figure><p>函数也可以称为对象的属性，如果一个函数作为一个对象的属性保存，那么我们称这个函数时这个对象的方法</p><p>调用这个函数就说调用对象的<code>方法（method）</code>但是它只是名称上的区别没有其他的区别。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line"></span><br><span class="line"><span class="attr">name</span>:<span class="string">&quot;猪八戒&quot;</span>,</span><br><span class="line"><span class="attr">age</span>:<span class="number">18</span>,</span><br><span class="line"><span class="attr">sayName</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj2.<span class="title function_">sayName</span>();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;创建一个对象&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://zaesky.github.io/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+    <category term="js" scheme="https://zaesky.github.io/tags/js/"/>
+    
+    <category term="js基础" scheme="https://zaesky.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript--立即执行函数</title>
