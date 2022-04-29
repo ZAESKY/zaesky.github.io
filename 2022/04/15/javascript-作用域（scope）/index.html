@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
                     <div class="author">
                         <span class="name">ZAESKY</span>
                         
-                            <span class="author-label">Lv2</span>
+                            <span class="author-label">Lv3</span>
                         
                     </div>
                     <div class="meta-info">
@@ -236,12 +236,12 @@ var _hmt = _hmt || [];
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>195 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>654 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -257,10 +257,35 @@ var _hmt = _hmt || [];
         
 
         <div class="article-content markdown-body">
-            <p>作用域<br>                   作用域指一个变量的作用的范围<br>                   在JS中一共有两种作用域：<br>                      1.全局作用域<br>                           直接编写在script标签中的JS代码，都在全局作用域<br>                           全局作用域在页面打开时创建，在页面关闭时销毁<br>                           在全局作用域中有一个全局对象window，<br>                              它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用<br>                           在全局作用域中：<br>                              创建的变量都会作为window对象的属性保存<br>                              创建的函数都会作为window对象的方法保存<br>                           全局作用域中的变量都是全局变量，<br>                              在页面的任意的部分都可以访问的到</p>
-<pre><code>                  2.函数作用域
-         /
-</code></pre>
+            <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a><strong>作用域</strong></h3><p><strong>作用域指一个变量的作用的范围</strong></p>
+<p>在JS中一共有两种作用域：</p>
+<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><ol>
+<li>直接编写在script标签中的JS代码，都在全局作用域</li>
+<li>全局作用域在页面打开时创建，在页面关闭时销毁</li>
+<li>在全局作用域中有一个全局对象window，</li>
+<li>它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用</li>
+</ol>
+<p>在全局作用域中：</p>
+<ol>
+<li>创建的变量都会作为window对象的属性保存</li>
+<li>创建的函数都会作为window对象的方法保存</li>
+<li>全局作用域中的变量都是全局变量</li>
+<li>在页面的任意的部分都可以访问的到</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">c</span>);</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是fun函数&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//window.fun();		</span></span><br><span class="line">    <span class="comment">//window.alert(&quot;hello&quot;);</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁</p>
+<p>每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的</p>
+<p><strong>在函数作用域中可以访问到全局作用域的变量</strong></p>
+<p><strong>在全局作用域中无法访问到函数作用域的变量</strong></p>
+<p>当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用</p>
+<p>如果没有则向上一级作用域中寻找，直到找到全局作用域，</p>
+<p>如果全局作用域中依然没有找到，则会报错ReferenceError</p>
+<p>在函数中要访问全局变量可以使用window对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">var</span> a = <span class="string">&quot;我是fun函数中的变量a&quot;</span>;</span><br><span class="line">				<span class="keyword">var</span> b = <span class="number">20</span>;</span><br><span class="line">				</span><br><span class="line">				<span class="comment">//console.log(&quot;a = &quot;+a);</span></span><br><span class="line">				</span><br><span class="line">				<span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params"></span>)&#123;</span><br><span class="line">					<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span>+<span class="variable language_">window</span>.<span class="property">a</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="title function_">fun2</span>();</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//fun();</span></span><br><span class="line">			<span class="comment">//console.log(&quot;b = &quot;+b);</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 在函数作用域也有声明提前的特性，</span></span><br><span class="line"><span class="comment">			 * 	使用var关键字声明的变量，会在函数中所有的代码执行之前被声明</span></span><br><span class="line"><span class="comment">			 * 	函数声明也会在函数中所有的代码执行之前执行</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			</span><br><span class="line">			<span class="keyword">function</span> <span class="title function_">fun3</span>(<span class="params"></span>)&#123;</span><br><span class="line">				</span><br><span class="line">				<span class="title function_">fun4</span>();</span><br><span class="line">				</span><br><span class="line">				<span class="comment">//console.log(a);</span></span><br><span class="line">				</span><br><span class="line">				<span class="keyword">var</span> a = <span class="number">35</span>;</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">function</span> <span class="title function_">fun4</span>(<span class="params"></span>)&#123;</span><br><span class="line">					<span class="title function_">alert</span>(<span class="string">&quot;I&#x27;m fun4&quot;</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//fun3();</span></span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">var</span> c = <span class="number">33</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 在函数中，不适用var声明的变量都会成为全局变量</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">function</span> <span class="title function_">fun5</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="comment">//console.log(&quot;c = &quot;+c);</span></span><br><span class="line">				<span class="comment">//c = 10;</span></span><br><span class="line">				</span><br><span class="line">				<span class="comment">//d没有使用var关键字，则会设置为全局变量</span></span><br><span class="line">				d = <span class="number">100</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="title function_">fun5</span>();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//在全局输出c</span></span><br><span class="line">			<span class="comment">//console.log(&quot;d = &quot;+d);</span></span><br><span class="line">			</span><br><span class="line">			<span class="keyword">var</span> e = <span class="number">23</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 定义形参就相当于在函数作用域中声明了变量</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">function</span> <span class="title function_">fun6</span>(<span class="params">e</span>)&#123;</span><br><span class="line">				<span class="title function_">alert</span>(e);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="title function_">fun6</span>();</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -295,6 +320,21 @@ var _hmt = _hmt || [];
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/21/javascript-%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">javascript--变量的声明提前</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -521,7 +561,7 @@ var _hmt = _hmt || [];
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">函数作用域</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
