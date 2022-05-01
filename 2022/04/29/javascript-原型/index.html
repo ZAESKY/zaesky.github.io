@@ -19,7 +19,7 @@ var _hmt = _hmt || [];
     
     <title>
         
-            javascript--对象（3） |
+            javascript--原型 |
         
         ZAESKY&#39;s Blog
     </title>
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">javascript--对象（3）</span>
+            <span class="title-hover-animation">javascript--原型</span>
         </div>
 
         
@@ -216,8 +216,8 @@ var _hmt = _hmt || [];
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-21 22:06:45</span>
-        <span class="mobile">2022-04-21 22:06</span>
+        <span class="pc">2022-04-29 20:03:14</span>
+        <span class="mobile">2022-04-29 20:03</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -255,12 +255,12 @@ var _hmt = _hmt || [];
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>265 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>689 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -276,10 +276,21 @@ var _hmt = _hmt || [];
         
 
         <div class="article-content markdown-body">
-            <h4 id="普通创建对象方法"><a href="#普通创建对象方法" class="headerlink" title="普通创建对象方法"></a>普通创建对象方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 创建一个对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        <span class="attr">name</span>:<span class="string">&quot;孙悟空&quot;</span>,</span><br><span class="line">        <span class="attr">age</span>:<span class="number">18</span>,</span><br><span class="line">        <span class="attr">gender</span>:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">        <span class="attr">sayName</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+            <h4 id="原型-prototype"><a href="#原型-prototype" class="headerlink" title="原型 prototype"></a>原型 prototype</h4><p>我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype</p>
+<p>这个属性对应着一个对象，这个对象就是我们所谓的原型对象</p>
+<p>如果函数作为普通函数调用prototype没有任何作用</p>
+<p>当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，我们可以通过proto来访问该属性。</p>
+<p>原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中共有的内容，统一设置到原型对象中。<br>当我们访问对象的一个属性或方法时，它会先在对象自身中寻找，如果有则直接使用，如果没有则会去原型对象中寻找，如果找到则直接使用。</p>
+<p> 以后我们创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中，这样不用分别为每一个对象添加，也不会影响到全局作用域，就可以使每个对象都具有这些属性和方法了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			//向MyClass的原型中添加属性a</span><br><span class="line">			MyClass.prototype.a = 123;</span><br><span class="line">			</span><br><span class="line">			//向MyClass的原型中添加一个方法</span><br><span class="line">			MyClass.prototype.sayHello = function()&#123;</span><br><span class="line">				alert(&quot;hello&quot;);</span><br><span class="line">			&#125;;</span><br><span class="line">			</span><br><span class="line">			var mc = new MyClass();</span><br><span class="line">			</span><br><span class="line">			var mc2 = new MyClass();</span><br><span class="line">			</span><br><span class="line">			//console.log(MyClass.prototype);</span><br><span class="line">			//console.log(mc2.__proto__ == MyClass.prototype);</span><br><span class="line">			</span><br><span class="line">			//向mc中添加a属性</span><br><span class="line">			mc.a = &quot;我是mc中的a&quot;;</span><br><span class="line">			</span><br><span class="line">			//console.log(mc2.a);</span><br><span class="line">			</span><br><span class="line">			mc.sayHello();</span><br></pre></td></tr></table></figure>
 
-<h4 id="使用工厂方法创建对象"><a href="#使用工厂方法创建对象" class="headerlink" title="使用工厂方法创建对象"></a>使用工厂方法创建对象</h4><p>通过该方法可以大批量的创建对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">function</span> <span class="title function_">createPerson</span>(<span class="params">name , age ,gender</span>)&#123;</span><br><span class="line">	<span class="comment">//创建一个新的对象 </span></span><br><span class="line">	<span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">	<span class="comment">//向对象中添加属性</span></span><br><span class="line">	obj.<span class="property">name</span> = name;</span><br><span class="line">	obj.<span class="property">age</span> = age;</span><br><span class="line">	obj.<span class="property">gender</span> = gender;</span><br><span class="line">	obj.<span class="property">sayName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="comment">//将新的对象返回</span></span><br><span class="line">	<span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 用来创建狗的对象</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">function</span> <span class="title function_">createDog</span>(<span class="params">name , age</span>)&#123;</span><br><span class="line">		<span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">		obj.<span class="property">name</span> = name;</span><br><span class="line">		obj.<span class="property">age</span> = age;</span><br><span class="line">		obj.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">			<span class="title function_">alert</span>(<span class="string">&quot;汪汪~~&quot;</span>);</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> obj;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> obj2 = <span class="title function_">createPerson</span>(<span class="string">&quot;猪八戒&quot;</span>,<span class="number">28</span>,<span class="string">&quot;男&quot;</span>);</span><br><span class="line">	<span class="keyword">var</span> obj3 = <span class="title function_">createPerson</span>(<span class="string">&quot;白骨精&quot;</span>,<span class="number">16</span>,<span class="string">&quot;女&quot;</span>);</span><br><span class="line">	<span class="keyword">var</span> obj4 = <span class="title function_">createPerson</span>(<span class="string">&quot;蜘蛛精&quot;</span>,<span class="number">18</span>,<span class="string">&quot;女&quot;</span>);</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 使用工厂方法创建的对象，使用的构造函数都是Object</span></span><br><span class="line"><span class="comment">	 * 	所以创建的对象都是Object这个类型，</span></span><br><span class="line"><span class="comment">	 * 	就导致我们无法区分出多种不同类型的对象</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="comment">//创建一个狗的对象</span></span><br><span class="line">	<span class="keyword">var</span> dog = <span class="title function_">createDog</span>(<span class="string">&quot;旺财&quot;</span>,<span class="number">3</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(dog);</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(obj4);</span><br></pre></td></tr></table></figure>
+<p>创建一个构造函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//向MyClass的原型中添加一个name属性</span><br><span class="line">MyClass.prototype.name = &quot;我是原型中的名字&quot;;</span><br><span class="line"></span><br><span class="line">var mc = new MyClass();</span><br><span class="line">mc.age = 18;</span><br><span class="line"></span><br><span class="line">//console.log(mc.name);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//使用in检查对象中是否含有某个属性时，如果对象中没有但是原型中有，也会返回true</span><br><span class="line">			//console.log(&quot;name&quot; in mc);</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">		//可以使用对象的hasOwnProperty()来检查对象自身中是否含有该属性</span><br><span class="line">		//使用该方法只有当对象自身中含有属性时，才会返回true</span><br><span class="line">		//console.log(mc.hasOwnProperty(&quot;age&quot;));</span><br><span class="line">		</span><br><span class="line">		//console.log(mc.hasOwnProperty(&quot;hasOwnProperty&quot;));</span><br></pre></td></tr></table></figure>
+
+
+<p>原型对象也是对象，所以它也有原型，当我们使用一个对象的属性或方法时，会现在自身中寻找，自身中如果有，则直接使用，如果没有则去原型对象中寻找，如果原型对象中有，则使用，如果没有则去原型的原型中寻找,直到找到Object对象的原型，Object对象的原型没有原型，如果在Object原型中依然没有找到，则返回undefined。</p>
 
         </div>
 
@@ -287,11 +298,11 @@ var _hmt = _hmt || [];
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：javascript--对象（3）</li>
+        <li>本文标题：javascript--原型</li>
         <li>本文作者：ZAESKY</li>
-        <li>创建时间：2022-04-21 22:06:45</li>
+        <li>创建时间：2022-04-29 20:03:14</li>
         <li>
-            本文链接：https://zaesky.github.io/2022/04/21/javascript-对象（3）/
+            本文链接：https://zaesky.github.io/2022/04/29/javascript-原型/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -322,13 +333,13 @@ var _hmt = _hmt || [];
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/29/javascript-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/"
+                           href="/2022/04/29/javascript-toString/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">javascript--构造函数</span>
+                                <span class="post-nav-title-item">javascript--toString</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -338,10 +349,10 @@ var _hmt = _hmt || [];
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/21/javascript-this%E5%85%B3%E9%94%AE%E5%AD%97/"
+                           href="/2022/04/29/javascript-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">javascript--this关键字</span>
+                                <span class="post-nav-title-item">javascript--构造函数</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -559,7 +570,7 @@ var _hmt = _hmt || [];
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">普通创建对象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">使用工厂方法创建对象</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-prototype"><span class="nav-number">1.</span> <span class="nav-text">原型 prototype</span></a></li></ol>
     </div>
 </div>
         </aside>
