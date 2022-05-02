@@ -1,3 +1,5 @@
+https://zaesky.github.io/2022/05/01/javascript-%E6%95%B0%E7%BB%84/
+https://zaesky.github.io/2022/05/01/javascript-%E6%95%B0%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95/
 https://zaesky.github.io/2022/04/29/javascript-toString/
 https://zaesky.github.io/2022/04/29/javascript-%E5%8E%9F%E5%9E%8B/
 https://zaesky.github.io/2022/04/29/javascript-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/
